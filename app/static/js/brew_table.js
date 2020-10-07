@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var event_name = 'brew_session_update|' + table_data.chart_id
+    var event_name = 'brew_session_update|' + graph_data.chart_id
     socket.on(event_name, function (event)
     {
         var data = JSON.parse(event);
