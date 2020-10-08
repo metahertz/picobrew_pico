@@ -1,5 +1,8 @@
 $(document).ready(function(){
-        var data = JSON.parse(graph_data);
+    var event_name = 'brew_session_update|' + graph_data.chart_id
+    socket.on(event_name, function (event)
+    {
+        var data = JSON.parse(event);
         $('#table_head:last-child').after('<tr class="' + data.time + '"></tr>');
         $('.' + data.time).append('<td>' + data.time + '</td>');
         for (var i = 0; i < data.data.length; i++){
@@ -7,3 +10,4 @@ $(document).ready(function(){
             $('.' + data.time).append('<tr>' + data.data[i] + '</tr>');
         }
     });
+});
